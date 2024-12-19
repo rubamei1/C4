@@ -15,6 +15,7 @@
 import Foundation
 import SwiftData
 
+// MARK: - ChildrenAge Model
 @Model
 class ChildrenAge {
     var age: Int
@@ -24,12 +25,13 @@ class ChildrenAge {
     }
 }
 
+// MARK: - ProgressTracker Model
 @Model
 class ProgressTracker {
-    var completedWords: [Word] = []
-    var completedLetters: [Letter] = []
-    var currentLevel: Int = 1
-    var currentStep: Int = 0
+    var completedWords: [Word] = []      // Tracks completed words
+    var completedLetters: [Letter] = [] // Tracks completed letters
+    var currentLevel: Int = 1           // Current level of progress
+    var currentStep: Int = 0            // Current step in the level
 
     init(completedWords: [Word] = [], completedLetters: [Letter] = [], currentLevel: Int = 1, currentStep: Int = 0) {
         self.completedWords = completedWords
@@ -39,14 +41,15 @@ class ProgressTracker {
     }
 }
 
+// MARK: - Letter Model
 @Model
 class Letter {
-    var character: String
-    var tutorialVideo: URL?
-    var coloringImages: String
-    var coloringChalkSticks: [String] = []
-    var puzzleImage: String
-    var puzzlePieces: [String] = []
+    var character: String               // The letter itself
+    var tutorialVideo: URL?             // Tutorial video for the letter (optional)
+    var coloringImages: String          // Path to coloring images for the letter
+    var coloringChalkSticks: [String] = [] // List of chalk colors for coloring
+    var puzzleImage: String             // Path to puzzle image for the letter
+    var puzzlePieces: [String] = []     // List of puzzle piece paths
 
     init(character: String, tutorialVideo: URL? = nil, coloringImages: String, coloringChalkSticks: [String] = [], puzzleImage: String, puzzlePieces: [String] = []) {
         self.character = character
@@ -58,10 +61,11 @@ class Letter {
     }
 }
 
+// MARK: - Word Model
 @Model
 class Word {
-    var flashcard: FlashCard
-    var pyramid: [PyramidParts] = []
+    var flashcard: FlashCard             // Flashcard for the word
+    var pyramid: [PyramidParts] = []     // Pyramid steps for decoding the word
 
     init(flashcard: FlashCard, pyramid: [PyramidParts] = []) {
         self.flashcard = flashcard
@@ -69,12 +73,13 @@ class Word {
     }
 }
 
+// MARK: - FlashCard Model
 @Model
 class FlashCard {
-    var text: String
-    var textBackgroundColor: String
-    var imageBackgroundColor: String
-    var textColor: String
+    var text: String                     // Text displayed on the flashcard
+    var textBackgroundColor: String      // Background color for the text side
+    var imageBackgroundColor: String     // Background color for the image side
+    var textColor: String                // Text color
 
     init(textBackgroundColor: String, imageBackgroundColor: String, textColor: String, text: String) {
         self.textBackgroundColor = textBackgroundColor
@@ -84,11 +89,12 @@ class FlashCard {
     }
 }
 
+// MARK: - PyramidParts Model
 @Model
 class PyramidParts {
-    var text: String
-    var pyramidImage: String
-    var voiceFile: String
+    var text: String                     // Text for the pyramid part
+    var pyramidImage: String             // Path to the image representing the part
+    var voiceFile: String                // Path to the voice file for pronunciation
 
     init(text: String, pyramidImage: String, voiceFile: String) {
         self.text = text
@@ -97,16 +103,16 @@ class PyramidParts {
     }
 }
 
+// MARK: - DragToPyramid Model
 @Model
-class DragToPyramid{
-    var pyramidParts : [PyramidParts]
-    var textBoxes : [String]
-    var isCorrectPosition : Bool = false
-    
-    init(pyramidParts: [PyramidParts], textBoxes: [String], isCorrectPosition: Bool) {
+class DragToPyramid {
+    var pyramidParts: [PyramidParts]     // Pyramid parts to drag and drop
+    var textBoxes: [String]              // Text boxes for drag targets
+    var isCorrectPosition: Bool = false // Tracks if the items are correctly positioned
+
+    init(pyramidParts: [PyramidParts], textBoxes: [String], isCorrectPosition: Bool = false) {
         self.pyramidParts = pyramidParts
         self.textBoxes = textBoxes
         self.isCorrectPosition = isCorrectPosition
     }
-    
 }
