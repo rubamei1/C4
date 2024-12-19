@@ -23,8 +23,7 @@ struct FlashcardView: View {
     var body: some View {
         ZStack {
             // Background
-            Color.yellow.opacity(0.2)
-                .edgesIgnoringSafeArea(.all)
+            Color("InterfacesColor").ignoresSafeArea(.all)
             
             VStack {
                 // Progress Bar
@@ -145,3 +144,4 @@ struct FlashcardView: View {
     return FlashcardView()
         .modelContainer(previewContainer)
 }
+

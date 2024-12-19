@@ -24,7 +24,7 @@ struct PyramidPage: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color.yellow.opacity(0.1).edgesIgnoringSafeArea(.all)
+                Color("InterfacesColor").ignoresSafeArea(.all)
                 
                 VStack(spacing: 90) {
                     // Progress Bar
@@ -86,7 +86,7 @@ struct PyramidView: View {
                         
                         ZStack{
                             Spacer()
-                            Rectangle().fill(Color("orange")).frame(width: 140, height: 400).cornerRadius(20)
+                            Rectangle().fill(Color("OrangeBox")).frame(width: 140, height: 400).cornerRadius(20)
                                                 
                                                 
                             VStack(spacing:8){
@@ -94,7 +94,7 @@ struct PyramidView: View {
                                     Text(text)
                                         .font(.title)
                                         .frame(width: 100, height: 80)
-                                        .background(Color("bige"))
+                                        .background(Color("Bige"))
                                         .cornerRadius(8)
                                         //.shadow(radius: 3)
                                         .offset(positions[index])

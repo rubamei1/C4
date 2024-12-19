@@ -10,8 +10,7 @@ import SwiftUI
 struct MapView: View {
     var body: some View {
         ZStack {
-            Color.yellow.opacity(0.2)
-                .edgesIgnoringSafeArea(.all)
+            Color("InterfacesColor").ignoresSafeArea(.all)
             
             // Path between the homes
             Image("HomePath")
